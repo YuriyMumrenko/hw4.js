@@ -34,28 +34,27 @@ function outputNumberParagraph(){
 	}
 }
 //---------task4-------------------
+var buttonCount1 = 1, buttonCount2 = 1; 
+var buttoms = document.querySelectorAll('.enter_count');
 
-let buttonTask4 = document.querySelector('.enter_Task4');
-buttonTask4.addEventListener('click' , quantityClick);
+let outQuantityClick1 = document.querySelector('.c1');
+let outQuantityClick2 = document.querySelector('.c2');
 
+for(let i = 0; i < buttoms.length; i++){
+    buttoms[i].addEventListener('click', quantityClick);
+}
 
-let buttonCount1 = document.querySelector('.count1');
-buttonCount1.addEventListener('click' , quantityClick);
+function quantityClick (elem) {
+	let button = elem.target;
+	if (button === buttoms[0]){
 
-let buttonCount2 = document.querySelector('.count2');
-buttonCount2.addEventListener('click' , quantityClick);
-
-
-
-let outQuantityClick = document.querySelector('.out_quantityClick');
-var countClick = 1; 
-
-function quantityClick () {
-
-	outQuantityClick.innerHTML = " количество кликов =  " + countClick;
-	countClick++;
-
-
+	outQuantityClick1.textContent = "кнопка 1: количество кликов =  " + buttonCount1;
+	buttonCount1++;
+	}
+	else if (button === buttoms[1]) {
+		outQuantityClick2.textContent = "кнопка 2: количество кликов =  " + buttonCount2;
+	buttonCount2++;
+	}
 }
 
 //---------task5-------------------
@@ -84,10 +83,11 @@ function outResPower(){
 let buttonTask6 = document.querySelector('.enter_Task6');
 buttonTask6.addEventListener('click' , markAllElem);
 
-let elements = document.getElementsByTagName('div');
+let inputTag = document.querySelector ('.inputTag');
 
 function markAllElem(){
 
+let elements = document.querySelectorAll(inputTag.value);
 	for (let i = 0; i < elements.length; i++) {
 		elements[i].style.textDecoration = 'underline';
 	}
@@ -97,6 +97,7 @@ function markAllElem(){
 let buttonTask7 = document.querySelector('.enter_Task7');
 buttonTask7.addEventListener('click' , outCheckAge);
 
+let inputAge1 = document.querySelector('.inputAge1');
 
 function checkAge(age) {
 
@@ -107,13 +108,14 @@ function checkAge(age) {
 	}
 }
 function outCheckAge (){
-	checkAge(15);
+	checkAge(inputAge1.value);
 }
 //---------task8-------------------
 
 let buttonTask8 = document.querySelector('.enter_Task8');
 buttonTask8.addEventListener('click' , outCheckAge2);
 
+let inputAge2 = document.querySelector('.inputAge2');
 
 function checkAge2(age) {
 
@@ -136,14 +138,13 @@ function checkAge2(age) {
 }
 
 function outCheckAge2 (){
-	checkAge2();
+	checkAge2(inputAge2.value);
 }
 
 //---------task9-------------------
 
 let buttonTask9 = document.querySelector('.enter_Task9');
 buttonTask9.addEventListener('click' , outlengthArray);
-
 
 function lengthArray (arr){
 
@@ -162,8 +163,8 @@ function lengthArray (arr){
 }
 function outlengthArray (){
 
-	lengthArray( [ 2, 8, "koko", true]);
-
+    
+ lengthArray( [ 2, 8, "koko", true]);
  // lengthArray( ); // аргумент не задан
 }
 
